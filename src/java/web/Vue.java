@@ -32,24 +32,5 @@ public class Vue implements Serializable {
     /**
      * Constructor  */
     public Vue() {
-        student = new Eleve();
-        teacher = new Prof();
     }
-
-    public Eleve getStudent() {
-        return student;
-    }
-
-    public void setStudent(Eleve student) {
-        this.student = student;
-    }
-
-    public Prof getTeacher() {
-        return teacher;
-    }
-
-    public void setTeacher(Prof teacher) {
-        this.teacher = teacher;
-    }
-    
 }
