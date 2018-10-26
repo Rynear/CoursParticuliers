@@ -12,6 +12,7 @@ import dao.ProfFacadeLocal;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
+import java.util.List;
 import javax.ejb.EJB;
 
 /**
@@ -27,8 +28,108 @@ public class VueEleve implements Serializable {
     EleveFacadeLocal eleveDAO;
     @EJB
     ProfFacadeLocal profDAO;
-    private Eleve student;
-    private Prof teacher;
+    Eleve monEleve;
+    private Integer idEleve;
+    private String nomEleve;
+    private String prenomEleve;
+    private Integer sexeEleve;
+    private Integer ageEleve;
+    private Integer niveauEleve;
+    private String mdpEleve;
+
+    public List<Eleve> getListeEleve() {
+        return listeEleve;
+    }
+
+    public void setListeEleve(List<Eleve> listeEleve) {
+        this.listeEleve = listeEleve;
+    }
+    private List<Eleve> listeEleve;
+
+    public EleveFacadeLocal getEleveDAO() {
+        return eleveDAO;
+    }
+
+    public void setEleveDAO(EleveFacadeLocal eleveDAO) {
+        this.eleveDAO = eleveDAO;
+    }
+
+    public ProfFacadeLocal getProfDAO() {
+        return profDAO;
+    }
+
+    public void setProfDAO(ProfFacadeLocal profDAO) {
+        this.profDAO = profDAO;
+    }
+
+    public Eleve getMonEleve() {
+        return monEleve;
+    }
+
+    public void setMonEleve(Eleve monEleve) {
+        this.monEleve = monEleve;
+    }
+
+    public Integer getIdEleve() {
+        return idEleve;
+    }
+
+    public void setIdEleve(Integer idEleve) {
+        this.idEleve = idEleve;
+    }
+
+    public String getNomEleve() {
+        return nomEleve;
+    }
+
+    public void setNomEleve(String nomEleve) {
+        this.nomEleve = nomEleve;
+    }
+
+    public String getPrenomEleve() {
+        return prenomEleve;
+    }
+
+    public void setPrenomEleve(String prenomEleve) {
+        this.prenomEleve = prenomEleve;
+    }
+
+    public Integer getSexeEleve() {
+        return sexeEleve;
+    }
+
+    public void setSexeEleve(Integer sexeEleve) {
+        this.sexeEleve = sexeEleve;
+    }
+
+    public Integer getAgeEleve() {
+        return ageEleve;
+    }
+
+    public void setAgeEleve(Integer ageEleve) {
+        this.ageEleve = ageEleve;
+    }
+
+    public Integer getNiveauEleve() {
+        return niveauEleve;
+    }
+
+    public void setNiveauEleve(Integer niveauEleve) {
+        this.niveauEleve = niveauEleve;
+    }
+
+    public String getMdpEleve() {
+        return mdpEleve;
+    }
+
+    public void setMdpEleve(String mdpEleve) {
+        this.mdpEleve = mdpEleve;
+    }
+
+    public void ajoutEleve(){
+        eleveDAO.create(monEleve);
+    }
+    
     /**
      * Constructor  */
     public VueEleve() {

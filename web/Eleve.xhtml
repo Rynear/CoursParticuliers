@@ -2,12 +2,35 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     
     <h:head>
         <title>Facelet Title</title>
     </h:head>
     <h:body>
         Bienvenue Bright Student
+        
+        <h:form id="ajoutEleve">
+            <p:outputLabel value="Vous souhaitez vous inscrire :" /><br /><br />
+            <h:panelGrid columns="2" cellpadding="5">
+            <p:outputLabel value="Votre nom " />
+            <p:inputText value="#{VueEleve.nomEleve}"/>
+            <p:outputLabel value="Votre prénom " />
+            <p:inputText value="#{VueEleve.prenomEleve}"/>
+            <p:outputLabel value="Vous êtes un garçon tapez 1, vous êtes une fille tapez 2 " />
+            <p:inputText value="#{VueEleve.sexeEleve}"/>
+            <p:outputLabel value="Votre age " />
+            <p:inputText value="#{VueEleve.ageEleve}"/>
+            <p:outputLabel value="Votre niveau scolaire " />
+            <p:inputText value="#{VueEleve.niveauEleve}"/>
+            <p:outputLabel value="Veuillez saisir un mot de passe " />
+            <p:inputText value="#{VueEleve.mdpEleve}"/>           
+            </h:panelGrid>
+            <br />
+            <p:commandButton value="M'enregistrer" action="#{VueEleve.ajoutEleve()}" ajax="false"/>
+            <br /><br />
+        </h:form>
+
     </h:body>
 </html>
