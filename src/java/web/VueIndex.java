@@ -21,7 +21,7 @@ import javax.ejb.EJB;
 @Named(value = "Vue")
 @SessionScoped
 
-public class Vue implements Serializable {
+public class VueIndex implements Serializable {
 
     @EJB
     EleveFacadeLocal eleveDAO;
@@ -31,6 +31,6 @@ public class Vue implements Serializable {
     private Prof teacher;
     /**
      * Constructor  */
-    public Vue() {
+    public VueIndex() {
     }
 }
