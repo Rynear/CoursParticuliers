@@ -4,10 +4,7 @@
  * and open the template in the editor.
  */
 package web;
-
-import Entity.Eleve;
 import Entity.Prof;
-import dao.EleveFacadeLocal;
 import dao.ProfFacadeLocal;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
@@ -18,16 +15,13 @@ import javax.ejb.EJB;
  *
  * @author Felix
  */
-@Named(value = "Vue")
+@Named(value = "VueProf")
 @SessionScoped
 
 public class VueProf implements Serializable {
 
     @EJB
-    EleveFacadeLocal eleveDAO;
-    @EJB
     ProfFacadeLocal profDAO;
-    private Eleve student;
     private Prof teacher;
     /**
      * Constructor  */

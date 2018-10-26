@@ -18,7 +18,7 @@ import javax.ejb.EJB;
  *
  * @author Felix
  */
-@Named(value = "Vue")
+@Named(value = "VueEleve")
 @SessionScoped
 
 public class VueEleve implements Serializable {
