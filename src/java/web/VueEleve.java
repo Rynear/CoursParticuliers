@@ -13,7 +13,10 @@ import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import java.util.List;
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 
 /**
  *
@@ -28,7 +31,7 @@ public class VueEleve implements Serializable {
     EleveFacadeLocal eleveDAO;
     @EJB
     ProfFacadeLocal profDAO;
-    Eleve monEleve;
+    private Eleve monEleve;
     private Integer idEleve;
     private String nomEleve;
     private String prenomEleve;
@@ -36,7 +39,18 @@ public class VueEleve implements Serializable {
     private Integer ageEleve;
     private Integer niveauEleve;
     private String mdpEleve;
+    private String message;
 
+    /**
+     * Constructor  */
+    public VueEleve() {
+    }
+    
+    @PostConstruct
+    public void init () {
+        monEleve = new Eleve();
+    }
+    
     public List<Eleve> getListeEleve() {
         return listeEleve;
     }
@@ -128,10 +142,21 @@ public class VueEleve implements Serializable {
 
     public void ajoutEleve(){
         eleveDAO.create(monEleve);
+        saveMessage();
     }
     
-    /**
-     * Constructor  */
-    public VueEleve() {
+ 
+    public String getMessage() {
+        return message;
+    }
+ 
+    public void setMessage(String message) {
+        this.message = message;
+    }
+     
+    public void saveMessage() {
+        FacesContext context = FacesContext.getCurrentInstance();
+         
+        context.addMessage(null, new FacesMessage("Successful") );
     }
 }

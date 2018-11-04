@@ -12,23 +12,23 @@
         Bienvenue Bright Student
         
         <h:form id="ajoutEleve">
+            <p:growl id="msg" showDetail="true" sticky="true" />
+            
             <p:outputLabel value="Vous souhaitez vous inscrire :" /><br /><br />
             <h:panelGrid columns="2" cellpadding="5">
             <p:outputLabel value="Votre nom " />
-            <p:inputText value="#{VueEleve.nomEleve}"/>
+            <p:inputText value="#{VueEleve.monEleve.nomE}"/>
             <p:outputLabel value="Votre prénom " />
-            <p:inputText value="#{VueEleve.prenomEleve}"/>
+            <p:inputText value="#{VueEleve.monEleve.prenomE}"/>
             <p:outputLabel value="Vous êtes un garçon tapez 1, vous êtes une fille tapez 2 " />
-            <p:inputText value="#{VueEleve.sexeEleve}"/>
+            <p:inputText value="#{VueEleve.monEleve.sexeE}"/>
             <p:outputLabel value="Votre age " />
-            <p:inputText value="#{VueEleve.ageEleve}"/>
+            <p:inputText value="#{VueEleve.monEleve.ageE}"/>
             <p:outputLabel value="Votre niveau scolaire " />
-            <p:inputText value="#{VueEleve.niveauEleve}"/>
-            <p:outputLabel value="Veuillez saisir un mot de passe " />
-            <p:inputText value="#{VueEleve.mdpEleve}"/>           
+            <p:inputText value="#{VueEleve.monEleve.niveauE}"/>        
             </h:panelGrid>
             <br />
-            <p:commandButton value="M'enregistrer" action="#{VueEleve.ajoutEleve()}" ajax="false"/>
+            <p:commandButton value="M'enregistrer" action="#{VueEleve.ajoutEleve()}" ajax="false" update="msg"/>
             <br /><br />
         </h:form>
 
