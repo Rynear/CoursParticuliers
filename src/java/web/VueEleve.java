@@ -17,6 +17,7 @@ import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import org.primefaces.event.ToggleEvent;
 
 /**
  *
@@ -40,6 +41,7 @@ public class VueEleve implements Serializable {
     private Integer niveauEleve;
     private String mdpEleve;
     private String message;
+    private String option;
 
     /**
      * Constructor  */
@@ -145,7 +147,14 @@ public class VueEleve implements Serializable {
         saveMessage();
     }
     
+    public String getOption() {
+        return option;
+    }
  
+    public void setOption(String option) {
+        this.option = option;
+    }
+    
     public String getMessage() {
         return message;
     }
@@ -158,5 +167,11 @@ public class VueEleve implements Serializable {
         FacesContext context = FacesContext.getCurrentInstance();
          
         context.addMessage(null, new FacesMessage("Successful") );
+    
+    }
+
+    public void handleToggle(ToggleEvent event) {
+        FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Toggled", "Visibility:" + event.getVisibility());
+        FacesContext.getCurrentInstance().addMessage(null, msg);
     }
 }
