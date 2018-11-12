@@ -16,6 +16,7 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
+import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import org.primefaces.event.ToggleEvent;
 
@@ -23,6 +24,7 @@ import org.primefaces.event.ToggleEvent;
  *
  * @author Felix
  */
+
 @Named(value = "VueEleve")
 @SessionScoped
 
